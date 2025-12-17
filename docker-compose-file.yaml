@@ -8,20 +8,20 @@ services:
     image: yellow1238/mysql:v1
     container_name: mysql  # --name mysql
     volumes:
-      - mysql:/var/lib/mysql # -v mysql:/var/lib/mysql
+    - mysql:/var/lib/mysql # -v mysql:/var/lib/mysql
   backend:
     image: yellow1238/backend:v1
     container_name: backend # --name backend
     depends_on:
-      - mysql
+    - mysql
   frontend:
     image: yellow1238/frontend:v1
     container_name: frontend # --name frontend
     ports:
-      - "80:80" # -p 80:80
+    - "80:80" # -p 80:80
     depends_on:
-      - backend
+    - backend
     
     # run command --> docker compose up -d
     # stop command --> docker compose down
-    
+
